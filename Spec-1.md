@@ -18,7 +18,7 @@ Table-2;1 Meat;0 Fish
 
 #### Limit
 
-..* How to manage if it's no write Meat or Fish (We send an Email to the client in this example is florence@gmail.com ?)
+..* How to manage if it's no write Meat or Fish (We send an Email to the client in this example is florence Laline ?)
 
 Sample : 
 
