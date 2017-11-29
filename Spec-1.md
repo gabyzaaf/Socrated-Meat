@@ -3,10 +3,10 @@
 ## Data Input
 
 ``` csv
-Table-1;damien@gmail.com;Meat
-Table-1;florence@gmail.com;Meat
-Table-1;Ludovic@gmail.com;Fish
-Table-2;Laurent@gmail.com;Meat
+Table-1;Damien Durant;Meat
+Table-1;Florance Dutartre;Meat
+Table-1;Ludovic Bretono;Fish
+Table-2;Laurent galle;Meat
 ```
 
 ### Data Output
@@ -23,8 +23,8 @@ Table-2;1 Meat;0 Fish
 Sample : 
 
 ``` csv
-Table-1;damien@gmail.com;Meat
-Table-1;florence@gmail.com;NOTHING
-Table-1;Ludovic@gmail.com;Fish
-Table-2;Laurent@gmail.com;Meat
+Table-1;Damien Durant;Meat
+Table-1;florence Laline;NOTHING
+Table-1;Ludovic Durant;Fish
+Table-2;Laurent Dupond;Meat
 ```
