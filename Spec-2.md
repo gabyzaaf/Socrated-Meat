@@ -47,7 +47,7 @@ Dessert :
 #### Limit
 
 1. If the table contains less or more than 10 participants (Who contact)?
-2. If the participant is present more than One time (What we need to do ) ?
+2. If the participant is present more than once (What we need to do ) ?
 3. If the Starter or the Dessert are not good ? 
 
 Sample : 
