@@ -1,4 +1,4 @@
-# Service for manage the tables.
+# Service for managing the tables.
 
 ## Input Data Sample
 
