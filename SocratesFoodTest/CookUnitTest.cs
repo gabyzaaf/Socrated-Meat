@@ -20,11 +20,11 @@ namespace SocratesFoodTest
 
 
             var foodInformation = new List<FoodInformations>();
-            foodInformation.Add(new FoodInformations("Table-1", "Damien", "Durant", "Fish"));
-            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Meat"));
-            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Meat"));
-            foodInformation.Add(new FoodInformations("Table-2", "Ludovic", "Bretono", "Fish"));
-            foodInformation.Add(new FoodInformations("Table-2", "Ludovic", "Bretono", "Nothing"));
+            foodInformation.Add(new FoodInformations("Table-1", "Damien", "Durant","Carote", "Fish","Chocolate"));
+            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Carote","Meat","Chocolate"));
+            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Carote","Meat","Chcolate"));
+            foodInformation.Add(new FoodInformations("Table-2", "Ludovic", "Bretono", "Carote","Fish","Chocolate"));
+            
 
 
             var infos = Substitute.For<IcandidatPlacementFood>();
