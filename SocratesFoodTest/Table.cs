@@ -1,4 +1,6 @@
-﻿namespace SocratesFoodTest
+﻿using System;
+
+namespace SocratesFoodTest
 {
     internal class Table
     {
@@ -7,7 +9,7 @@
         private string firstname;
         public string Meal { get; set; }
 
-        public Table(string identifiant, string name, string firstname, string meal)
+        private Table(string identifiant, string name, string firstname, string meal)
         {
             this.Identifiant = identifiant;
             this.name = name;
@@ -15,6 +17,9 @@
             this.Meal = meal;
         }
 
-
+        public static Table Of(string identifiant, string name, string firstname, string meal)
+        {
+            return new Table(identifiant, name, firstname, meal);
+        }
     }
 }

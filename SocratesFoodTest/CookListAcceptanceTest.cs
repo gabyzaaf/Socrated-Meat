@@ -14,10 +14,11 @@ namespace SocratesFoodTest
         public void Should_Obtains_The_List_For_Meat()
         {
             IList<Table> tableComposition = new List<Table>();
-            tableComposition.Add(new Table("Table-1", "Durant", "Damien", "Meat"));
-            tableComposition.Add(new Table("Table-1", "Durant", "Jean", "Fish"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Jean", "Fish"));
             var tableInformations = new TableInformation(tableComposition);
-            Check.That(tableInformations.ObtainTableWith("Table-1").ObtainNumberFor("Meat")).IsEqualTo(1);
+            Check.That(tableInformations.ObtainNumberFor("Fish")).IsEqualTo(1);
 
 
 

@@ -12,18 +12,34 @@ namespace SocratesFoodTest
     class CookUnitTest
     {
         [Test]
-        public void Should_Create_Informations_And_Valid_Contain_Fish()
+        public void Should_Obtain_Number_Of_All_The_Fish_For_All_The_Tables()
         {
             IList<Table> tableComposition = new List<Table>();
-            tableComposition.Add(new Table("Table-1", "Durant", "Damien", "Meat"));
-            tableComposition.Add(new Table("Table-1", "Durant", "Jean", "Fish"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Jean", "Fish"));
+            tableComposition.Add(Table.Of("Table-8", "Durant", "Jean", "Fish"));
             var tableInformations = new TableInformation(tableComposition);
-            Check.That(tableInformations.ObtainTableWith("Table-1").ObtainNumberFor("Fish")).IsEqualTo(1);
+            Check.That(tableInformations.ObtainNumberFor("Fish")).IsEqualTo(2);
 
         }
 
-        
-        
+        [Test]
+        public void Should_Obtain_Number_Of_All_The_Meat_For_All_The_Tables()
+        {
+            IList<Table> tableComposition = new List<Table>();
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Jean", "Fish"));
+            tableComposition.Add(Table.Of("Table-8", "Durant", "Jean", "Fish"));
+            var tableInformations = new TableInformation(tableComposition);
+            Check.That(tableInformations.ObtainNumberFor("Meat")).IsEqualTo(2);
+
+        }
+
+
+
+
 
 
     }
