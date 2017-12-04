@@ -94,6 +94,27 @@ namespace SocratesFoodTest
             Check.That(tableNumberFood.SequenceEqual(tableNumberFoodEstimated) && tableNumberFoodEstimated.SequenceEqual(tableNumberFood));
         }
 
+        [Test]
+        public void Should_Obtain_Food_Counting_With_The_MealAllowed()
+        {
+            IList<Table> tableComposition = new List<Table>();
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat", mealAllowed));
+            tableComposition.Add(Table.Of("Table-2", "Lamier", "Lola", "Meat", mealAllowed));
+            tableComposition.Add(Table.Of("Table-1", "Durant", "Laurent", "Fish", mealAllowed));
+            Dictionary<string, int> dictionaryMealAllowed = new Dictionary<string, int>();
+            dictionaryMealAllowed.Add("Meat", 0);
+            dictionaryMealAllowed.Add("Fish", 0);
+
+            var tableNumberFoodEstimated = new List<TableMealsNumbers>();
+            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-1", 1, 1));
+            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-2", 1, 0));
+
+            var tableInformation = new TableInformation(tableComposition);
+
+            List<TableMealsNumbers> tableNumberFood = tableInformation.ObtainMealNumberForAllTheTables(dictionaryMealAllowed);
+            Check.That(tableNumberFood.SequenceEqual(tableNumberFoodEstimated) && tableNumberFoodEstimated.SequenceEqual(tableNumberFood));
+        }
+
 
 
 

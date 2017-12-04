@@ -56,5 +56,26 @@ namespace SocratesFoodTest
             return tableMealsNumbersElements;
            
         }
+
+        internal List<TableMealsNumbers> ObtainMealNumberForAllTheTables(Dictionary<string, int> dictionaryMealAllowed)
+        {
+            var items = tableComposition.OrderBy(table => table.Identifiant).GroupBy(table => table.Identifiant);
+            var tableMealsNumbersElements = new List<TableMealsNumbers>();
+            string tableName = "";
+            foreach (var item in items)
+            {
+                foreach (var element in item)
+                {
+                    if (dictionaryMealAllowed.ContainsKey(element.Meal))
+                    {
+                        dictionaryMealAllowed[element.Meal]++;
+                    }
+                    tableName = element.Identifiant;
+                }
+                tableMealsNumbersElements.Add(new TableMealsNumbers(tableName, dictionaryMealAllowed["Meat"], dictionaryMealAllowed["Fish"]));
+            }
+            return tableMealsNumbersElements;
+
+        }
     }
 }
