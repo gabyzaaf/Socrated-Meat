@@ -69,6 +69,7 @@
     <Compile Include="CookListAcceptanceTest.cs" />
     <Compile Include="CookUnitTest.cs" />
     <Compile Include="GiveTheChoiceException.cs" />
+    <Compile Include="MealAllowed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TableInformation.cs" />

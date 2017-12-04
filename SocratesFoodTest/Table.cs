@@ -17,9 +17,15 @@ namespace SocratesFoodTest
             this.Meal = meal;
         }
 
-        public static Table Of(string identifiant, string name, string firstname, string meal)
+        public static Table Of(string identifiant, string name, string firstname, string meal, MealAllowed mealAllowed)
         {
+            if (!mealAllowed.Had(meal))
+            {
+                throw new GiveTheChoiceException($"The meal {meal} don't respect the meal allowed");
+            }
             return new Table(identifiant, name, firstname, meal);
         }
+
+        
     }
 }
