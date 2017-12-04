@@ -11,26 +11,14 @@ namespace SocratesFoodTest
     public class CookListAcceptanceTest
     {
         [Test]
-        public void Should_Obtains_The_List_For_Meat_And_Fish()
+        public void Should_Obtains_The_List_For_Meat()
         {
-            var foodChoice = new List<string>();
-            foodChoice.Add("Meat");
-            foodChoice.Add("Fish");
+            IList<Table> tableComposition = new List<Table>();
+            tableComposition.Add(new Table("Table-1", "Durant", "Damien", "Meat"));
+            tableComposition.Add(new Table("Table-1", "Durant", "Jean", "Fish"));
+            var tableInformations = new TableInformation(tableComposition);
+            Check.That(tableInformations.ObtainTableWith("Table-1").ObtainNumberFor("Meat")).IsEqualTo(1);
 
-
-            var foodInformation = new List<FoodInformations>();
-            foodInformation.Add(new FoodInformations("Table-1", "Damien", "Durant", "Carote", "Fish", "Chocolate"));
-            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Carote", "Meat", "Chocolate"));
-            foodInformation.Add(new FoodInformations("Table-1", "Florence", "Dutartre", "Carote", "Meat", "Chcolate"));
-            foodInformation.Add(new FoodInformations("Table-2", "Ludovic", "Bretono", "Carote", "Fish", "Chocolate"));
-            //foodInformation.Add(new FoodInformations("Table-2", "Ludovic", "Bretono", "Carote", "Nothing", "Chocolate"));
-
-
-
-            var infos = Substitute.For<IcandidatPlacementFood>();
-            infos.ObtainsInformations().Returns(foodInformation);
-            FoodManager foodManager = new FoodManager(infos.ObtainsInformations());
-            Check.That(foodManager.IsValid(foodChoice)).IsTrue();
 
 
         }
