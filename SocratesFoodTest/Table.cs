@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SocratesFoodTest
 {
-    internal class Table
+    public class Table
     {
         public string Identifiant { get; set; }
         private string name;

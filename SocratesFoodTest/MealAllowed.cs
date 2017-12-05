@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SocratesFoodTest
 {
-    internal class MealAllowed
+    public class MealAllowed
     {
         private IList<string> mealAllowedContent;
 
