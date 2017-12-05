@@ -14,6 +14,7 @@ namespace SocratesFoodTest
     {
 
         private MealAllowed mealAllowed;
+        private Dictionary<string, int> dictionaryMealAllowed;
         [SetUp]
         public void Init()
         {
@@ -21,6 +22,9 @@ namespace SocratesFoodTest
             mealAllowedContent.Add("Meat");
             mealAllowedContent.Add("Fish");
             mealAllowed = new MealAllowed(mealAllowedContent);
+            dictionaryMealAllowed = new Dictionary<string, int>();
+            dictionaryMealAllowed.Add("Meat", 0);
+            dictionaryMealAllowed.Add("Fish", 0);
         }
 
         [Test]
@@ -76,44 +80,41 @@ namespace SocratesFoodTest
             List<Table> tables = listComparate.ElementAt(0).ToList();
             Check.That(tables.SequenceEqual(tableCompositionEstimated) && tableCompositionEstimated.SequenceEqual(tables)).IsTrue();
         }
+        
+       
 
-        [Test]
-        public void Should_Obtain_Food_Counting()
-        {
-            IList<Table> tableComposition = new List<Table>();
-            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat", mealAllowed));
-            tableComposition.Add(Table.Of("Table-2", "Lamier", "Lola", "Meat", mealAllowed));
-            tableComposition.Add(Table.Of("Table-1", "Durant", "Laurent", "Fish", mealAllowed));
 
-            var tableNumberFoodEstimated = new List<TableMealsNumbers>();
-            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-1", 1, 1));
-            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-2", 1, 0));
+      [Test]
+      public void Should_Obtain_Food_Counting_With_The_MealAllowed()
+      {
+          IList<Table> tableComposition = new List<Table>();
+          tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat", mealAllowed));
+          tableComposition.Add(Table.Of("Table-2", "Lamier", "Lola", "Meat", mealAllowed));
+          tableComposition.Add(Table.Of("Table-1", "Durant", "Laurent", "Fish", mealAllowed));
+          
 
-            var tableInformation = new TableInformation(tableComposition);
-            List<TableMealsNumbers> tableNumberFood = tableInformation.ObtainMealNumberForAllTheTables();
-            Check.That(tableNumberFood.SequenceEqual(tableNumberFoodEstimated) && tableNumberFoodEstimated.SequenceEqual(tableNumberFood));
-        }
+          var tableNumberFoodEstimated = new List<TableMealsNumbers>();
+          var mealDicoEstimatedForTable1 = new Dictionary<string, int>();
+          mealDicoEstimatedForTable1.Add("Meat", 1);
+          mealDicoEstimatedForTable1.Add("Fish", 1);
+          tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-1",mealDicoEstimatedForTable1));
 
-        [Test]
-        public void Should_Obtain_Food_Counting_With_The_MealAllowed()
-        {
-            IList<Table> tableComposition = new List<Table>();
-            tableComposition.Add(Table.Of("Table-1", "Durant", "Damien", "Meat", mealAllowed));
-            tableComposition.Add(Table.Of("Table-2", "Lamier", "Lola", "Meat", mealAllowed));
-            tableComposition.Add(Table.Of("Table-1", "Durant", "Laurent", "Fish", mealAllowed));
-            Dictionary<string, int> dictionaryMealAllowed = new Dictionary<string, int>();
-            dictionaryMealAllowed.Add("Meat", 0);
-            dictionaryMealAllowed.Add("Fish", 0);
+           var mealDicoEstimatedForTable2 = new Dictionary<string, int>();
+           mealDicoEstimatedForTable2.Add("Meat", 1);
+           mealDicoEstimatedForTable2.Add("Fish", 0);
 
-            var tableNumberFoodEstimated = new List<TableMealsNumbers>();
-            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-1", 1, 1));
-            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-2", 1, 0));
+            tableNumberFoodEstimated.Add(new TableMealsNumbers("Table-2", mealDicoEstimatedForTable2));
 
-            var tableInformation = new TableInformation(tableComposition);
+          var tableInformation = new TableInformation(tableComposition);
 
-            List<TableMealsNumbers> tableNumberFood = tableInformation.ObtainMealNumberForAllTheTables(dictionaryMealAllowed);
-            Check.That(tableNumberFood.SequenceEqual(tableNumberFoodEstimated) && tableNumberFoodEstimated.SequenceEqual(tableNumberFood));
-        }
+          List<TableMealsNumbers> tableNumberFood = tableInformation.ObtainMealNumberForAllTheTables(dictionaryMealAllowed);
+          Check.That(tableNumberFood.SequenceEqual(tableNumberFoodEstimated) && tableNumberFoodEstimated.SequenceEqual(tableNumberFood)).IsTrue();
+      }
+      
+        
+
+
+        
 
 
 

@@ -25,37 +25,7 @@ namespace SocratesFoodTest
 
         public int ObtainNumberFor(string food) => tableComposition.Where(table => table.Meal.Equals(food)).Count();
 
-        internal List<TableMealsNumbers> ObtainMealNumberForAllTheTables()
-        {
-            var items = tableComposition.OrderBy(table => table.Identifiant).GroupBy(table => table.Identifiant);
-            string tableName = "";
-            int numbersMeat = 0;
-            int numbersFish = 0;
-            var tableMealsNumbersElements = new List<TableMealsNumbers>();
-
-            foreach (var item in items)
-            {
-               
-                foreach(var element in item)
-                {
-                    if (element.Meal.Equals("Fish"))
-                    {
-                        numbersFish++;
-                    }
-                    else if(element.Meal.Equals("Meat"))
-                    {
-                        numbersMeat++;
-                    }
-                    tableName = element.Identifiant;
-                }
-                tableMealsNumbersElements.Add(new TableMealsNumbers(tableName, numbersMeat, numbersFish));
-                numbersFish = 0;
-                numbersMeat = 0;
-            }
-
-            return tableMealsNumbersElements;
-           
-        }
+        
 
         internal List<TableMealsNumbers> ObtainMealNumberForAllTheTables(Dictionary<string, int> dictionaryMealAllowed)
         {
@@ -72,7 +42,8 @@ namespace SocratesFoodTest
                     }
                     tableName = element.Identifiant;
                 }
-                tableMealsNumbersElements.Add(new TableMealsNumbers(tableName, dictionaryMealAllowed["Meat"], dictionaryMealAllowed["Fish"]));
+                tableMealsNumbersElements.Add(new TableMealsNumbers(tableName, dictionaryMealAllowed));
+                dictionaryMealAllowed = dictionaryMealAllowed.ToDictionary(p => p.Key, p => 0);
             }
             return tableMealsNumbersElements;
 
