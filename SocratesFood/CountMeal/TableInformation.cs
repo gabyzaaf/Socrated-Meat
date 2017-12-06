@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SocratesFoodTest
 {
-    internal class TableInformation
+    public class TableInformation
     {
         
         private IList<Table> tableComposition;
@@ -27,7 +27,7 @@ namespace SocratesFoodTest
 
         
 
-        internal List<TableMealsNumbers> ObtainMealNumberForAllTheTables(Dictionary<string, int> dictionaryMealAllowed)
+        public List<TableMealsNumbers> ObtainMealNumberForAllTheTables(Dictionary<string, int> dictionaryMealAllowed)
         {
             var items = tableComposition.OrderBy(table => table.Identifiant).GroupBy(table => table.Identifiant);
             var tableMealsNumbersElements = new List<TableMealsNumbers>();

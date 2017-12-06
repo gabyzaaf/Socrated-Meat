@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace SocratesFoodTest
 {
     [Serializable]
-    internal class GiveTheChoiceException : Exception
+    public class GiveTheChoiceException : Exception
     {
         public GiveTheChoiceException()
         {

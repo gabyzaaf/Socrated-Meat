@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SocratesFoodTest
 {
-    internal class TableRepository
+    public class TableRepository
     {
         private ITables element;
 
@@ -12,7 +12,7 @@ namespace SocratesFoodTest
             this.element = element;
         }
 
-        internal List<Table> ObtainTableList()
+        public List<Table> ObtainTableList()
         {
             return element.ObtainsTheTables();
         }

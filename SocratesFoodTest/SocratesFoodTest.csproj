@@ -68,17 +68,16 @@
   <ItemGroup>
     <Compile Include="CookListAcceptanceTest.cs" />
     <Compile Include="CookUnitTest.cs" />
-    <Compile Include="GiveTheChoiceException.cs" />
-    <Compile Include="ITables.cs" />
-    <Compile Include="MealAllowed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Table.cs" />
-    <Compile Include="TableInformation.cs" />
-    <Compile Include="TableMealsNumbers.cs" />
-    <Compile Include="TableRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocratesFood\SocratesFood.csproj">
+      <Project>{7fcddbb1-2992-4ac3-8795-3e4f650c48c2}</Project>
+      <Name>SocratesFood</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
