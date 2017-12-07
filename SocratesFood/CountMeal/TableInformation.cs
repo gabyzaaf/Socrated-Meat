@@ -17,13 +17,6 @@ namespace SocratesFoodTest
         }
 
        
-
-
-
-       
-
-        
-
         public List<TableMealsNumbers> ObtainMealNumberForAllTheTables(Dictionary<string, int> dictionaryMealAllowed)
         {
             var items = tableComposition.OrderBy(table => table.Identifiant).GroupBy(table => table.Identifiant);

@@ -68,6 +68,10 @@
   <ItemGroup>
     <Compile Include="CountMeal\CookListAcceptanceTest.cs" />
     <Compile Include="CountMeal\CookUnitTest.cs" />
+    <Compile Include="OrganizeMealForTable\MenuInformation.cs" />
+    <Compile Include="OrganizeMealForTable\MenuOrganiserTest.cs" />
+    <Compile Include="OrganizeMealForTable\MenuOrganizer.cs" />
+    <Compile Include="OrganizeMealForTable\MenuOrganizerAcceptance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
