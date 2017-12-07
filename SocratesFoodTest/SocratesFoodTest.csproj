@@ -66,8 +66,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CookListAcceptanceTest.cs" />
-    <Compile Include="CookUnitTest.cs" />
+    <Compile Include="CountMeal\CookListAcceptanceTest.cs" />
+    <Compile Include="CountMeal\CookUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

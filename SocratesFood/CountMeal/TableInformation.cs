@@ -16,14 +16,11 @@ namespace SocratesFoodTest
             this.tableComposition = tableComposition;
         }
 
-        public TableInformation ObtainTableWith(string identifiant)
-        {
-           return new TableInformation(new List<Table>(tableComposition.Where(c => c.Identifiant.Equals(identifiant))));
-        }
+       
 
 
 
-        public int ObtainNumberFor(string food) => tableComposition.Where(table => table.Meal.Equals(food)).Count();
+       
 
         
 

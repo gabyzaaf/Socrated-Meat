@@ -5,10 +5,10 @@ namespace SocratesFoodTest
 {
     public class Table
     {
-        public string Identifiant { get; set; }
+        public string Identifiant { get; private set; }
         private string name;
         private string firstname;
-        public string Meal { get; set; }
+        public string Meal { get; private set; }
 
         private Table(string identifiant, string name, string firstname, string meal)
         {
