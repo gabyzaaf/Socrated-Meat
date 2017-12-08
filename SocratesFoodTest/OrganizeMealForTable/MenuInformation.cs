@@ -1,4 +1,6 @@
-﻿namespace SocratesFoodTest.OrganizeMealForTable
+﻿using System;
+
+namespace SocratesFoodTest.OrganizeMealForTable
 {
     internal class MenuInformation
     {
@@ -17,6 +19,11 @@
             this.entry = entry;
             this.meal = meal;
             this.dessert = dessert;
+        }
+
+        internal MenuInformationOut ObtainInfos()
+        {
+            return new MenuInformationOut(TableName, name, firstname, new Menu(entry, meal, dessert));
         }
     }
 }
